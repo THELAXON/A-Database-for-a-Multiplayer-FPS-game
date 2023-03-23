@@ -10,7 +10,7 @@ public class CsvReader {
 
     public ArrayList<String[]> customerreader() throws IOException {
         ArrayList<String[]> data = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("Customers.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Customers (1).csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",",-1);
@@ -24,7 +24,7 @@ public class CsvReader {
 
     public ArrayList<String[]> itemsreader() throws IOException {
         ArrayList<String[]> data = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("Items.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Items (1).csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",",-1);
@@ -38,7 +38,7 @@ public class CsvReader {
 
     public ArrayList<String[]> combatreader() throws IOException {
         ArrayList<String[]> data = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("Combat.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Combat (1).csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",",-1);

@@ -35,6 +35,8 @@ public class Database {
             query.query1(stmt,c);
             query.query2(stmt,c);
             query.query3(stmt,c);
+            query.query4(stmt,c);
+            query.query5(stmt,c);
             stmt.close();
             c.close();
         } catch ( Exception e ) 

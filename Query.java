@@ -9,7 +9,7 @@ public class Query{
         System.out.println("List the top 5 characters with the highest number of successful combats attacks.\n");
         try {
             stmt = c.createStatement();
-            String sql = "SELECT Attacker, COUNT(*) AS Successful_Attacks FROM Combat WHERE Result='Victory' GROUP BY Attacker ORDER BY Successful_Attacks DESC LIMIT 5;";
+            String sql = "SELECT Attacker, COUNT(*) AS Successful_Attacks FROM Combat WHERE Result='Hit' GROUP BY Attacker ORDER BY Successful_Attacks DESC LIMIT 5;";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 String attacker = rs.getString("Attacker");
@@ -83,4 +83,28 @@ public class Query{
             }
         }
     }
+    
+    public void query5(Statement stmt, Connection c) throws SQLException {
+        System.out.println("List the name of weapons that is used by at least 10 Players\n");
+        try {
+            stmt = c.createStatement();
+            String sql = "SELECT DISTINCT Item " +
+                         "FROM Items " +
+                         "WHERE Character IN (SELECT Character_Name " +
+                                             "FROM Character " +
+                                             "GROUP BY Account_Number " +
+                                             "HAVING COUNT(*) >= 10)";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String itemName = rs.getString("Item");
+                System.out.println("Weapon Name: " + itemName + "\n");
+            }
+            rs.close();
+        } finally {
+            if (stmt != null) {
+                stmt.close();
+            }
+        }
+    }
+    
 }
