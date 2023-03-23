@@ -15,9 +15,8 @@ public class Combat  {
     public void createtable() throws SQLException
     {
         s = c.createStatement();
-        String sql = "CREATE TABLE Combat " +
+        String sql = "CREATE TABLE IF NOT EXISTS Combat " +
                     "(BattleNo INT NOT NULL," +
-                    " Account_Number INT, " +
                     " BattleDate INT NOT NULL, " +
                     " Attacker TEXT NOT NULL, " +
                     " Defender TEXT NOT NULL," +
@@ -30,18 +29,17 @@ public class Combat  {
     }
 
 
-    public void insertcombatData(Connection c, ArrayList<String[]> combatread, ArrayList<String[]> customerread) throws SQLException {
-        String sql = "INSERT INTO Combat VALUES (?,?,?,?,?,?,?,?)";
+    public void insertcombatData(Connection c, ArrayList<String[]> combatread) throws SQLException {
+        String sql = "INSERT OR IGNORE INTO Combat VALUES (?,?,?,?,?,?,?)";
         PreparedStatement pstmt = c.prepareStatement(sql);
-        for (int i = 0; i < customerread.size(); i++) {
+        for (int i = 1; i < combatread.size(); i++) {
             pstmt.setString(1, combatread.get(i)[1]);
-            pstmt.setString(2, customerread.get(i)[0]);
-            pstmt.setString(3, combatread.get(i)[0]);
-            pstmt.setString(4, combatread.get(i)[2]);
-            pstmt.setString(5, combatread.get(i)[3]);
-            pstmt.setString(6, combatread.get(i)[4]);
-            pstmt.setString(7, combatread.get(i)[4]);
-            pstmt.setString(8, combatread.get(i)[5]);
+            pstmt.setString(2, combatread.get(i)[0]);
+            pstmt.setString(3, combatread.get(i)[2]);
+            pstmt.setString(4, combatread.get(i)[3]);
+            pstmt.setString(5, combatread.get(i)[4]);
+            pstmt.setString(6, combatread.get(i)[5]);
+            pstmt.setString(7, combatread.get(i)[6]);
             pstmt.executeUpdate();
         }
     }

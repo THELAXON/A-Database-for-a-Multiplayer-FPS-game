@@ -10,10 +10,10 @@ public class CsvReader {
 
     public ArrayList<String[]> customerreader() throws IOException {
         ArrayList<String[]> data = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("databases/src/main/java/com/scc201/Customers.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Customers.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
+                String[] fields = line.split(",",-1);
                 data.add(fields);
             }
             //System.out.println(data.get(1)[0]);
@@ -25,13 +25,12 @@ public class CsvReader {
 
     public ArrayList<String[]> itemsreader() throws IOException {
         ArrayList<String[]> data = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("databases/src/main/java/com/scc201/Items.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Items.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
+                String[] fields = line.split(",",-1);
                 data.add(fields);
             }
-            //System.out.println(data.get(1)[0]);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,10 +39,10 @@ public class CsvReader {
 
     public ArrayList<String[]> combatreader() throws IOException {
         ArrayList<String[]> data = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("databases/src/main/java/com/scc201/Combat.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Combat.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
+                String[] fields = line.split(",",-1);
                 data.add(fields);
             }
            //System.out.println(data.get(1)[1]);
