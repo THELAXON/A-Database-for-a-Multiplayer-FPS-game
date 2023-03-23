@@ -24,11 +24,11 @@ public class Database {
             ArrayList<String[]> customerread= csvreader.customerreader();
             ArrayList<String[]> itemsread = csvreader.itemsreader();
             ArrayList<String[]> combatread = csvreader.combatreader();
-            //player.insertplayerData(c, combatread, customerread);
-            //character.insertcharacterData(c, combatread, customerread);
-            //combat.insertcombatData(c, combatread, customerread);
-            //items.insertitemsData(c, itemsread, customerread);
-
+            
+            player.insertplayerData(c,combatread,customerread);
+            character.insertcharacterData(c,customerread);
+            combat.insertcombatData(c, combatread);
+            items.insertitemsData(c, itemsread, customerread);
             stmt.close();
             c.close();
         } catch ( Exception e ) {
