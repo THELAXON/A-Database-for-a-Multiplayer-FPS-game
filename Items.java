@@ -40,8 +40,6 @@ public class Items  {
     {
         String sql = "INSERT OR IGNORE INTO Items VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = c.prepareStatement(sql);
-        try 
-        {
             for (int i = 1; i < itemsread.size(); i++) 
             {
                 pstmt.setString(1, itemsread.get(i)[1]);
@@ -62,9 +60,7 @@ public class Items  {
                 pstmt.setString(16, itemsread.get(i)[15]);
                 pstmt.executeUpdate();
             }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        
         
     }
 }

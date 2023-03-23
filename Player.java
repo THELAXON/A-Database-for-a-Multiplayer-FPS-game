@@ -1,12 +1,14 @@
 import java.sql.*;
 import java.util.ArrayList;
 
-public class Player  {
+public class Player  
+{
 
     private Statement s;
     private Connection c;
 
-    public Player(Statement s, Connection c){
+    public Player(Statement s, Connection c)
+    {
         this.s = s;
         this.c = c;
     }
@@ -24,17 +26,18 @@ public class Player  {
         System.out.println("Player Table Created");
     }
 
-    public void insertplayerData(Connection c, ArrayList<String[]> combatread, ArrayList<String[]> customerread) throws SQLException {
-    String sql = "INSERT OR IGNORE INTO Player VALUES (?,?,?,?)";
-    PreparedStatement pstmt = c.prepareStatement(sql);
-    for (int i = 1; i < customerread.size(); i++) 
+    public void insertplayerData(Connection c, ArrayList<String[]> combatread, ArrayList<String[]> customerread) throws SQLException 
     {
-        pstmt.setString(1, customerread.get(i)[0]);
-        pstmt.setString(2, customerread.get(i)[1]);
-        pstmt.setString(3, customerread.get(i)[2]);
-        pstmt.setString(4, customerread.get(i)[3]);
-        pstmt.executeUpdate();
-    }
+        String sql = "INSERT OR IGNORE INTO Player VALUES (?,?,?,?)";
+        PreparedStatement pstmt = c.prepareStatement(sql);
+        for (int i = 1; i < customerread.size(); i++) 
+        {
+            pstmt.setString(1, customerread.get(i)[0]);
+            pstmt.setString(2, customerread.get(i)[1]);
+            pstmt.setString(3, customerread.get(i)[2]);
+            pstmt.setString(4, customerread.get(i)[3]);
+            pstmt.executeUpdate();
+        }
     }
 
 }

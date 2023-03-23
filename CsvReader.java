@@ -16,7 +16,6 @@ public class CsvReader {
                 String[] fields = line.split(",",-1);
                 data.add(fields);
             }
-            //System.out.println(data.get(1)[0]);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,7 +44,6 @@ public class CsvReader {
                 String[] fields = line.split(",",-1);
                 data.add(fields);
             }
-           //System.out.println(data.get(1)[1]);
         }  catch (IOException e) {
             e.printStackTrace();
         }

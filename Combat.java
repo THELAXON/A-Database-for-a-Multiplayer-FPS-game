@@ -25,7 +25,7 @@ public class Combat  {
                     " Damage INT NOT NULL, " +
                     " PRIMARY KEY (BattleNo, Attacker, Defender, Weapon, Result, Damage))";
         s.executeUpdate(sql);
-        System.out.println("Player Table Created");
+        System.out.println("Combat Table Created");
     }
 
 
