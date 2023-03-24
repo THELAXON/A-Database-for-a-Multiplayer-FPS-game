@@ -83,7 +83,6 @@ public class Query{
             }
         }
     }
-    
     public void query5(Statement stmt, Connection c) throws SQLException {
         System.out.println("List the name of weapons that is used by at least 10 Players\n");
         try {
