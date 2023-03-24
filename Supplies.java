@@ -58,8 +58,6 @@ public class Supplies
                 {
                     System.err.println( e.getClass().getName() + ": " + e.getMessage() );
                 } 
-            } else {
-                System.out.println("Ignoring non-Supplies item: " + itemsread.get(i)[1]);
             }
         }
     }

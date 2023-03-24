@@ -88,8 +88,8 @@ public class Query{
         try {
             stmt = c.createStatement();
             String sql = "SELECT Item " +
-                         "FROM Items " +
-                         "WHERE Character IN (SELECT Character_Name " +
+                         "FROM Weapon " +
+                         "WHERE Character_Name IN (SELECT Character_Name " +
                                              "FROM Character " +
                                              "GROUP BY Account_Number " +
                                              "HAVING COUNT(*) >= 10)";

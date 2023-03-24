@@ -15,14 +15,12 @@ public class Database {
             stmt = c.createStatement();
             Player player = new Player(stmt, c);
             Character character = new Character(stmt, c);
-            Items items = new Items(stmt, c);
             Combat combat = new Combat(stmt,c);
             Weapon weapon = new Weapon(stmt, c);
             Armours armours = new Armours(stmt, c);
             Supplies supplies = new Supplies(stmt, c);
             player.createtable();
             character.createtable();
-            items.createtable();
             combat.createtable();
             weapon.createtable();
             armours.createtable();
@@ -35,7 +33,6 @@ public class Database {
             player.insertplayerData(c,combatread,customerread);
             character.insertcharacterData(c,customerread);
             combat.insertcombatData(c, combatread);
-            items.insertitemsData(c, itemsread, customerread);
             weapon.insertWeaponData(c, itemsread);
             armours.insertArmourData(c, itemsread);
             supplies.insertSuppliesData(c, itemsread);

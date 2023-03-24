@@ -58,8 +58,6 @@ public class Armours
                 {
                     System.err.println( e.getClass().getName() + ": " + e.getMessage() );
                 } 
-            } else {
-                System.out.println("Ignoring non-Armour item: " + itemsread.get(i)[1]);
             }
         }
     }
