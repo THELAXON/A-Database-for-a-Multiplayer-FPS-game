@@ -38,7 +38,7 @@ public class Character  {
     public void insertcharacterData(Connection c, ArrayList<String[]> customerread) throws SQLException {
         String sql = "INSERT OR IGNORE INTO Character VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = c.prepareStatement(sql);
-        for (int i = 0; i < customerread.size(); i++) {
+        for (int i = 1; i < customerread.size(); i++) {
             pstmt.setString(1, customerread.get(i)[6]);
             pstmt.setString(2, customerread.get(i)[0]);
             pstmt.setString(3, customerread.get(i)[4]);
