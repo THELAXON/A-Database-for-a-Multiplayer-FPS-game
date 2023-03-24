@@ -9,7 +9,7 @@ public class Query{
         System.out.println("List the top 5 characters with the highest number of successful combats attacks.\n");
         try {
             stmt = c.createStatement();
-            String sql = "SELECT Attacker, COUNT(*) AS Successful_Attacks FROM Combat WHERE Result='Hit' GROUP BY Attacker ORDER BY Successful_Attacks DESC LIMIT 5;";
+            String sql = "SELECT Attacker, COUNT(*) AS Successful_Attacks FROM Combat WHERE Result='Hit' OR Result = 'Victory' GROUP BY Attacker ORDER BY Successful_Attacks DESC LIMIT 5;";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 String attacker = rs.getString("Attacker");
@@ -87,7 +87,7 @@ public class Query{
         System.out.println("List the name of weapons that is used by at least 10 Players\n");
         try {
             stmt = c.createStatement();
-            String sql = "SELECT DISTINCT Item " +
+            String sql = "SELECT Item " +
                          "FROM Items " +
                          "WHERE Character IN (SELECT Character_Name " +
                                              "FROM Character " +

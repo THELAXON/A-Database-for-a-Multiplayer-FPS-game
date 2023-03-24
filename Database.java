@@ -17,10 +17,16 @@ public class Database {
             Character character = new Character(stmt, c);
             Items items = new Items(stmt, c);
             Combat combat = new Combat(stmt,c);
+            Weapon weapon = new Weapon(stmt, c);
+            Armours armours = new Armours(stmt, c);
+            Supplies supplies = new Supplies(stmt, c);
             player.createtable();
             character.createtable();
             items.createtable();
             combat.createtable();
+            weapon.createtable();
+            armours.createtable();
+            supplies.createtable();
             CsvReader csvreader = new CsvReader();
             ArrayList<String[]> customerread= csvreader.customerreader();
             ArrayList<String[]> itemsread = csvreader.itemsreader();
@@ -30,6 +36,9 @@ public class Database {
             character.insertcharacterData(c,customerread);
             combat.insertcombatData(c, combatread);
             items.insertitemsData(c, itemsread, customerread);
+            weapon.insertWeaponData(c, itemsread);
+            armours.insertArmourData(c, itemsread);
+            supplies.insertSuppliesData(c, itemsread);
 
             Query query = new Query();
             query.query1(stmt,c);
