@@ -83,20 +83,18 @@ public class Query{
             }
         }
     }
+    
     public void query5(Statement stmt, Connection c) throws SQLException {
-        System.out.println("List the name of weapons that is used by at least 10 Players\n");
+        System.out.println("List the name of weapons that is used by at least 10 Players.\n");
         try {
             stmt = c.createStatement();
-            String sql = "SELECT Item " +
-                         "FROM Weapon " +
-                         "WHERE Character_Name IN (SELECT Character_Name " +
-                                             "FROM Character " +
-                                             "GROUP BY Account_Number " +
-                                             "HAVING COUNT(*) >= 10)";
+            String sql = "SELECT Item, COUNT(DISTINCT Character_Name) AS Num_Players FROM Weapon GROUP BY Item HAVING COUNT(DISTINCT Character_Name) >= 10";
+
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                String itemName = rs.getString("Item");
-                System.out.println("Weapon Name: " + itemName + "\n");
+                String weaponName = rs.getString("Item");
+                int numPlayers = rs.getInt("Num_Players");
+                System.out.println("Weapon Name: " + weaponName + ", Num Players: " + numPlayers + "\n");
             }
             rs.close();
         } finally {
@@ -105,5 +103,6 @@ public class Query{
             }
         }
     }
+    
     
 }

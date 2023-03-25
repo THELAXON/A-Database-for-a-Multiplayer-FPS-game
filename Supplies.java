@@ -18,7 +18,7 @@ public class Supplies
     {
         s = c.createStatement();
         String sql = "CREATE TABLE IF NOT EXISTS Supplies " +
-                    "(Item TEXT PRIMARY KEY NOT NULL," +
+                    "(Item TEXT NOT NULL," +
                     " Character_Name TEXT NOT NULL, "+
                     " Item_Type TEXT NOT NULL, " +
                     " Price INT NOT NULL, " +
@@ -28,6 +28,7 @@ public class Supplies
                     " Manascore INT, " +
                     " SingleUse INT, " +
                     " Equiped INT, " +
+                    " PRIMARY KEY(Item,Character_Name), "+
                     " FOREIGN KEY (Character_Name) REFERENCES Character(Character_Name) ON DELETE CASCADE)";
         s.executeUpdate(sql);
         System.out.println("Supplies Table Created");

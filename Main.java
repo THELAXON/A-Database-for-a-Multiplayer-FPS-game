@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.ArrayList;
 
-public class Database {
+public class Main {
 
     public static void main( String args[] ) 
     {
@@ -25,6 +25,7 @@ public class Database {
             weapon.createtable();
             armours.createtable();
             supplies.createtable();
+
             CsvReader csvreader = new CsvReader();
             ArrayList<String[]> customerread= csvreader.customerreader();
             ArrayList<String[]> itemsread = csvreader.itemsreader();
@@ -43,6 +44,7 @@ public class Database {
             query.query3(stmt,c);
             query.query4(stmt,c);
             query.query5(stmt,c);
+            
             stmt.close();
             c.close();
         } catch ( Exception e ) 

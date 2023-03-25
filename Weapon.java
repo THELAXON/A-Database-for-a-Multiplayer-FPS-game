@@ -18,7 +18,7 @@ public class Weapon
     {
         s = c.createStatement();
         String sql = "CREATE TABLE IF NOT EXISTS Weapon " +
-                    "(Item TEXT PRIMARY KEY NOT NULL," +
+                    "(Item TEXT NOT NULL," +
                     " Character_Name TEXT NOT NULL, "+
                     " Item_Type TEXT NOT NULL, " +
                     " WeaponType TEXT NOT NULL, " +
@@ -27,6 +27,7 @@ public class Weapon
                     " Quantity INT NOT NULL, " +
                     " AttackScore INT NOT NULL, " +
                     " Equipped INT NOT NULL, " +
+                    " PRIMARY KEY(Item,Character_Name), "+
                     " FOREIGN KEY (Character_Name) REFERENCES Character(Character_Name) ON DELETE CASCADE)";
         s.executeUpdate(sql);
         System.out.println("Weapon Table Created");

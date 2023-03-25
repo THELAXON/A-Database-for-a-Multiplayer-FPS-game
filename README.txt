@@ -1,0 +1,3 @@
+The csv files within the directory of Milestone3 is the provided files by the coursework so it is ready to be compiled as is.
+
+To run this program you would be required to compile the files in the milestone3 folder and run it as follows: For Linux: Compilation: javac -cp ".:sqlite-jdbc-3.41.0.1.jar" *.java Execution:  java -cp ".:sqlite-jdbc-3.41.0.1.jar" MainFor Windows: Compilation: javac -cp ".;sqlite-jdbc-3.41.0.1.jar" *.javaExecution: java -cp ".;sqlite-jdbc-3.41.0.1.jar" Main
